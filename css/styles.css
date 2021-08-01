@@ -106,11 +106,11 @@ body {
 .logo-accent {
   color: var(--accent-color);
 }
-.logo:hover,
+/* .logo:hover,
 .logo:focus,
 .logo:active {
   color: var(--accent-color);
-}
+} */
 
 .site-nav {
   display: flex;
@@ -144,6 +144,7 @@ body {
   letter-spacing: 0.02em;
   padding-top: 32px;
   padding-bottom: 32px;
+  position: relative;
 }
 
 .auth-nav .item + .item {
@@ -174,6 +175,18 @@ body {
 .auth-nav-link:active {
   color: var(--accent-color);
   fill: var(--accent-color);
+}
+
+.site-nav .link.current::after {
+  content: "";
+  display: block;
+  background-color: var(--accent-color);
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  position: absolute;
+  align-items: center;
+  bottom: 0px;
 }
 
 /* ==== END OF HEADER ==== */
@@ -211,6 +224,7 @@ body {
   margin-right: auto;
   background-position: center;
   background-size: cover;
+  position: relative;
 }
 
 .hero-title {
@@ -244,6 +258,56 @@ body {
 .button:active {
   color: #ffffff;
   background-color: #188ce8;
+}
+
+/* ==== HERO MODAL==== */
+
+.backdrop {
+  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal {
+  position: relative;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  margin: auto;
+  width: 528px;
+  height: 581px;
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-close-btn {
+  display: flex;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 /* ==== END OF HERO ==== */
@@ -308,6 +372,24 @@ body {
   margin-left: 30px;
   margin-top: 30px;
   flex-basis: calc((100% - 90px) / 3);
+  position: relative;
+}
+
+.products-list-item-name {
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  color: #ffffff;
+  background-color: rgba(47, 48, 58, 0.8);
+  width: 100%;
+  height: 70px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ==== END OF WHAT WE DO ==== */
