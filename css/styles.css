@@ -541,8 +541,7 @@ address {
 }
 
 .social-media-link:hover,
-.social-media-link:focus,
-.social-media-icon:hover {
+.social-media-link:focus {
   background-color: var(--accent-color);
   fill: #ffffff;
 }
