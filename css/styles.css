@@ -106,11 +106,6 @@ body {
 .logo-accent {
   color: var(--accent-color);
 }
-/* .logo:hover,
-.logo:focus,
-.logo:active {
-  color: var(--accent-color);
-} */
 
 .site-nav {
   display: flex;
@@ -164,6 +159,11 @@ body {
 
 .auth-nav-svg {
   margin-right: 10px;
+}
+.auth-nav-link,
+.site-nav .link {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .link:hover,
@@ -252,6 +252,9 @@ body {
   align-items: center;
   text-align: center;
   cursor: pointer;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button:hover,
 .button:focus,
@@ -428,6 +431,9 @@ body {
   fill: #afb1b8;
   border-radius: 4px;
   border: 1px solid #afb1b8;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-link:hover,
@@ -470,6 +476,8 @@ address {
   font-style: normal;
   color: #ffffff;
   text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address:hover,
 .address:focus,
@@ -483,6 +491,8 @@ address {
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts-link:hover,
 .contacts-link:focus,
@@ -522,7 +532,10 @@ address {
   background-color: rgba(255, 255, 255, 0.1);
   justify-content: center;
   align-items: center;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .media-link-footer {
   fill: #ffffff;
 }
@@ -558,6 +571,10 @@ address {
   letter-spacing: 0.03em;
   cursor: pointer;
   border: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter-button:hover,
 .filter-button:focus,
@@ -594,8 +611,9 @@ address {
   letter-spacing: 0.03em;
   color: #ffffff;
   overflow: auto;
+
   transform: translateY(100%);
-  transition: transform 250ms linear;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-content {
@@ -623,7 +641,7 @@ address {
 .portfolio-list-link {
   text-decoration: none;
   display: block;
-  /* position: relative; */
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-list .item {
@@ -632,7 +650,7 @@ address {
   flex-basis: calc((100% - 90px) / 3);
   box-sizing: border-box;
 }
-.portfolio-list .item:hover {
+.portfolio-list-link:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
@@ -657,16 +675,16 @@ address {
   width: 100%;
   height: 100%;
 
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
   position: fixed;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+
   display: block;
   margin: auto;
   width: 528px;
@@ -675,6 +693,9 @@ address {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -683,11 +704,16 @@ address {
   pointer-events: none;
 }
 
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
 .modal-close-btn {
   display: flex;
   position: absolute;
   right: 8px;
   top: 8px;
+  padding: 0;
   border-radius: 50%;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
